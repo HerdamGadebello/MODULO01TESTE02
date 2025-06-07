@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Teste de Escrita em Francês</title>
-    <link href="https://fonts.googleapis.com/css2?family=Franklin+Gothic+Demi&family=Rockwell&family=Poppins&family=Akaya+Kanadaka&family=Bogart&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Franklin+Gothic+Demi&family=Franklin+Gothic+Heavy&family=Rockwell&family=Poppins&family=Akaya+Kanadaka&family=Bogart&display=swap" rel="stylesheet">
     <style>
         * {
             margin: 0;
@@ -39,7 +39,6 @@
             max-height: 70vh;
             opacity: 1;
             transition: opacity 1s ease-out;
-            /* Removido o box-shadow conforme solicitado */
         }
 
         /* Page 2 - Start Screen */
@@ -96,16 +95,15 @@
             left: 20px;
             width: 100px;
             max-width: 25%;
-            z-index: 10; /* Garante que a logo fique acima de outros elementos */
+            z-index: 10;
         }
 
-        /* Barra de progresso ajustada */
         .progress-container {
             width: 80%;
             background-color: #F4F1EC;
             border-radius: 10px;
-            margin: 60px 0 20px 0; /* Ajuste das margens */
-            height: 6px; /* Altura reduzida */
+            margin: 60px 0 20px 0;
+            height: 6px;
             overflow: hidden;
         }
 
@@ -213,7 +211,6 @@
             text-align: center;
         }
 
-        /* Botão VERIFICAR centralizado */
         .check-button-container {
             display: flex;
             justify-content: center;
@@ -243,7 +240,7 @@
             padding: 15px;
             margin-bottom: 20px;
             display: none;
-            text-align: center; /* Texto centralizado */
+            text-align: center;
         }
 
         .correct-answer {
@@ -252,14 +249,14 @@
             font-weight: bold;
             margin-bottom: 10px;
             color: #002F6C;
-            text-align: center; /* Texto centralizado */
+            text-align: center;
         }
 
         .translation {
             font-family: 'Bogart', sans-serif;
             font-size: 1rem;
             color: #6C4500;
-            text-align: center; /* Texto centralizado */
+            text-align: center;
         }
 
         .translation .main {
@@ -275,12 +272,13 @@
 
         .feedback {
             text-align: center;
-            font-family: 'Akaya Kanadaka', sans-serif;
+            font-family: 'Franklin Gothic Heavy', sans-serif;
             font-size: 1.8rem;
             margin: 20px 0;
             height: 40px;
             opacity: 0;
             transition: opacity 0.3s;
+            text-transform: uppercase;
         }
 
         .feedback.show {
@@ -334,7 +332,7 @@
         }
 
         /* Results Page */
-        .results-container {
+        #resultsPage {
             background-color: #C8102E;
             border-radius: 20px;
             padding: 30px;
@@ -342,7 +340,8 @@
             max-width: 600px;
             text-align: center;
             color: white;
-            margin-bottom: 30px;
+            margin: 30px auto;
+            display: none;
         }
 
         .results-title {
@@ -546,7 +545,7 @@
     </div>
 
     <!-- Results Page -->
-    <div id="resultsPage" class="results-container" style="display: none;">
+    <div id="resultsPage" class="results-container">
         <h1 class="results-title" id="resultsTitle"></h1>
         <p class="results-message" id="resultsMessage"></p>
         <img class="results-mascot" id="resultsMascot" src="" alt="Mascote">
@@ -955,7 +954,6 @@
         repeatButton.addEventListener('click', startReview);
 
         playButton.addEventListener('click', () => {
-            // Removido o buttonSound.play() conforme solicitado
             currentAudio.play();
             playButton.classList.add('pulse');
         });
