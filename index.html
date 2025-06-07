@@ -279,6 +279,7 @@
             opacity: 0;
             transition: opacity 0.3s;
             text-transform: uppercase;
+            letter-spacing: 1px;
         }
 
         .feedback.show {
@@ -287,10 +288,12 @@
 
         .correct {
             color: #3B8C59;
+            text-shadow: 0 0 5px rgba(59, 140, 89, 0.3);
         }
 
         .incorrect {
             color: #C8102E;
+            text-shadow: 0 0 5px rgba(200, 16, 46, 0.3);
         }
 
         .mascotNinho {
@@ -760,7 +763,7 @@
         }
 
         // Check answer
-        function checkAnswer() {
+                function checkAnswer() {
             if (answered) return;
             
             let userAnswer = userInput.value.trim();
@@ -784,7 +787,8 @@
             translation.innerHTML = quizData[questionIndex].translation;
             translationContainer.style.display = 'block';
             
-            // Show feedback
+            // Show feedback - ATUALIZADO COM FRANKLIN GOTHIC HEAVY
+            feedback.style.fontFamily = "'Franklin Gothic Heavy', sans-serif";
             if (isCorrect) {
                 feedback.textContent = 'CORRETO';
                 feedback.className = 'feedback correct show';
@@ -793,7 +797,6 @@
                 }
                 winSound.play();
                 
-                // Remove from wrong answers if in review mode
                 if (isReviewMode) {
                     const index = wrongAnswers.indexOf(questionIndex);
                     if (index !== -1) {
@@ -805,7 +808,6 @@
                 feedback.className = 'feedback incorrect show';
                 errorSound.play();
                 
-                // Add to wrong answers if not already there
                 if (!isReviewMode && !wrongAnswers.includes(questionIndex)) {
                     wrongAnswers.push(questionIndex);
                 }
